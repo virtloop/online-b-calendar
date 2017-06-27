@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CalendarBooking from "./calendar-booking";
+import CalendarBooking from "../containers/calendar-booking";
 //import calendar react component
 import Calendar from "react-big-calendar";
 import moment from "moment";
@@ -23,10 +23,6 @@ export default class Layout extends Component {
     this.setState({ isFormShown: false });
   }
   addNewBooking(start_date, end_date, booking) {
-    // alert(
-    //   `selected slot: \n\nstart ${start_date.toLocaleString()} ` +
-    //     `\nend: ${end_date.toLocaleString()}`
-    // );
     //display add New booking form
     this.setState({ isFormShown: true });
   }
