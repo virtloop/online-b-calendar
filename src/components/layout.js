@@ -19,6 +19,9 @@ export default class Layout extends Component {
       isFormShown: false
     };
   }
+  closeForm() {
+    this.setState({ isFormShown: false });
+  }
   addNewBooking(start_date, end_date, booking) {
     // alert(
     //   `selected slot: \n\nstart ${start_date.toLocaleString()} ` +
@@ -44,7 +47,10 @@ export default class Layout extends Component {
           }}
         />
         {this.state.isFormShown
-          ? <CalendarBooking isFormShown={this.state.isFormShown} />
+          ? <CalendarBooking
+              isFormShown={this.state.isFormShown}
+              closeForm={this.closeForm.bind(this)}
+            />
           : null}
       </div>
     );

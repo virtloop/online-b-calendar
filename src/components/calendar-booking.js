@@ -8,7 +8,7 @@ export default class CalendarBooking extends Component {
   render() {
     return (
       <div className="booking-form">
-        Add Booking <button onClick={this.closeForm.bind(this)}>Close</button>
+        Add Booking <button onClick={this.props.closeForm}>Close</button>
       </div>
     );
   }
