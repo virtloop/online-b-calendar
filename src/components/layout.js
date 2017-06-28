@@ -3,7 +3,8 @@ import CalendarBooking from "../containers/calendar-booking";
 //import calendar react component
 import Calendar from "react-big-calendar";
 import moment from "moment";
-
+import { connect } from "react-redux";
+import { store, actionCreators } from "../redux";
 //import css and events
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "../styles/main.css";
@@ -31,7 +32,7 @@ export default class Layout extends Component {
   }
 
   render() {
-    console.log(events);
+    console.log(store);
     return (
       <div className="layout-calendar">
         <Calendar

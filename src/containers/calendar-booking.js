@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { store, actionCreators } from "../redux";
 
 export default class CalendarBooking extends Component {
   componentWillMount() {}

@@ -2,13 +2,13 @@ export default [
   {
     title: "All Day Event",
     allDay: true,
-    startDate: new Date(2017, 8, 0),
-    endDate: new Date(2017, 8, 1)
+    startDate: new Date(2017, 6, 20),
+    endDate: new Date(2017, 6, 20)
   },
   {
     title: "Long Event",
     startDate: new Date(2017, 7, 7),
-    endDate: new Date(2017, 7, 10)
+    endDate: new Date(2017, 7, 7)
   },
 
   {
