@@ -7,7 +7,7 @@ import moment from "moment";
 //import css and events
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "../styles/main.css";
-import bookings from "../events/bookings";
+import events from "../events";
 // Setup the localizer by providing the moment (or globalize) Object
 // to the correct localizer.
 Calendar.momentLocalizer(moment); // or globalizeLocalizer
@@ -16,7 +16,10 @@ export default class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFormShown: false
+      events: events,
+      isFormShown: false,
+      start: null,
+      end: null
     };
   }
   closeForm() {
@@ -24,20 +27,22 @@ export default class Layout extends Component {
   }
   addNewBooking(start_date, end_date, booking) {
     //display add New booking form
-    this.setState({ isFormShown: true });
+    this.setState({ isFormShown: true, start: start_date, end: end_date });
   }
 
   render() {
+    console.log(events);
     return (
       <div className="layout-calendar">
         <Calendar
           selectable
-          events={bookings}
+          events={this.state.events}
           defaultView="week"
+          scrollToTime={new Date(1970, 1, 1, 6)}
           startAccessor="startDate"
           endAccessor="endDate"
           onSelectEvent={event => alert(event.title)}
-          views={["month", "week", "day"]}
+          views={["month", "week", "day", "agenda"]}
           onSelectSlot={slotInfo => {
             this.addNewBooking.call(this, slotInfo.start, slotInfo.end);
           }}
@@ -46,6 +51,8 @@ export default class Layout extends Component {
           ? <CalendarBooking
               isFormShown={this.state.isFormShown}
               closeForm={this.closeForm.bind(this)}
+              start={this.state.start}
+              end={this.state.end}
             />
           : null}
       </div>
